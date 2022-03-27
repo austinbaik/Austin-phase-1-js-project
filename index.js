@@ -2,7 +2,7 @@
 document.addEventListener('DOMContentLoaded', () => {
     document.querySelector('form').addEventListener('submit', (e) => {
         e.preventDefault()
-        console.log('long string', e.target.long-url-form.value)
+        console.log('long string', e.target.new_long_url.value)
         // shortenUrl(e.target.long-url-form.value)
     })
 })
