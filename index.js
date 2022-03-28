@@ -2,7 +2,7 @@
 document.addEventListener('DOMContentLoaded', () => {
     document.querySelector('form').addEventListener('submit', (e) => {
         e.preventDefault() //prevents the webpage from reloading upon 'submit' event
-        console.log('long string', e.target.new_long_url.value) 
+        // console.log('long string', e.target.new_long_url.value) 
         shortenUrl(e.target.new_long_url.value) // calls shortenUrl fxn with url submission as parameter
         // shortenUrl(e.target.long-url-form.value)
     })
@@ -31,20 +31,31 @@ document.addEventListener('DOMContentLoaded', () => {
 
 function shortenUrl(url) {
         // let urlforApi = `${apiUrl}${url}`
-        console.log('url', url)
         fetch(`https://api.shrtco.de/v2/shorten?url=${url}`) //API call is initiated to the API url that is interpolated with the user submitted url
             .then(resp => resp.json())
-            .then(json => parseJSON(json));
-        }
+            .then(json => {
+                let infoJson = json
+                console.log(infoJson)
+                responseChecker(infoJson)
+                // console.log('json', json)
+                // for (const apiInfo in json) {
+                //     console.log(apiInfo)
+                // }
 
-function parseJSON(json) {
-    console.log('json', json)
-    let shortUrl = result.full_short_link
-    let fullUrl = original_link
-    addUrltoDom(shortUrl, fullUrl)
+
+            // });
+        })}
+
+responseChecker(infoJson) {
+    if (infoJson)
+
+
 }
 
-// function addUrltoDOM(json) {
-//     let p = document.createElement('p')
-//     p.text = 
+// function addUrltoDOM(shortUrl, fullUrl) {
+//     console.log('s', shortUrl, 'f', fullUrl)
+
+// //     let p = document.createElement('p')
+// //     p.text = 
+// // 
 // }
