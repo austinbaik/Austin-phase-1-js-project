@@ -37,19 +37,15 @@ function shortenUrl(url) {
                 let infoJson = json
                 console.log(infoJson)
                 responseChecker(infoJson)
-                // console.log('json', json)
-                // for (const apiInfo in json) {
-                //     console.log(apiInfo)
-                // }
+        })
+    }
 
-
-            // });
-        })}
-
-responseChecker(infoJson) {
-    if (infoJson)
-
-
+function responseChecker(infoJson) { //helper fxn checks the JSON object for API error
+    if (infoJson.ok === false) { //if API returns 'false' for request
+        alert("This is not a valid URL, try again.") //webpage displays alert message 
+    } else {
+        addUrlToDom(infoJson) //calls fxn that add urls to DOM
+    }
 }
 
 // function addUrltoDOM(shortUrl, fullUrl) {
