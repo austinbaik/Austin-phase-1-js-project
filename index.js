@@ -40,6 +40,8 @@ function shortenUrl(url) {
         })
     }
 
+
+
 function responseChecker(infoJson) { //helper fxn checks the JSON object for API error
     if (infoJson.ok === false) { //if API returns 'false' for request
         alert("This is not a valid URL, try again.") //webpage displays alert message 
@@ -48,10 +50,11 @@ function responseChecker(infoJson) { //helper fxn checks the JSON object for API
     }
 }
 
-// function addUrltoDOM(shortUrl, fullUrl) {
-//     console.log('s', shortUrl, 'f', fullUrl)
-
-// //     let p = document.createElement('p')
-// //     p.text = 
-// // 
-// }
+function addUrlToDom(infoJson) {
+    let shortLink = infoJson.result.full_short_link
+    let orgLink = infoJson.result.original_link
+    
+    // let p = document.createElement('p')
+    // p.text = 
+// 
+}
