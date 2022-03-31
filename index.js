@@ -8,7 +8,6 @@ document.addEventListener('DOMContentLoaded', () => {
     })
 })
 
-
 // const apiUrl = 'https://api.shrtco.de/v2/shorten?url='
 
     // function shortenUrl(url){
@@ -40,8 +39,6 @@ function shortenUrl(url) {
         })
     }
 
-
-
 function responseChecker(infoJson) { //helper fxn checks the JSON object for API error
     if (infoJson.ok === false) { //if API returns 'false' for request
         alert("This is not a valid URL, try again.") //webpage displays alert message 
@@ -53,8 +50,17 @@ function responseChecker(infoJson) { //helper fxn checks the JSON object for API
 function addUrlToDom(infoJson) {
     let shortLink = infoJson.result.full_short_link
     let orgLink = infoJson.result.original_link
+    let a = document.createElement('a')
     
-    // let p = document.createElement('p')
-    // p.text = 
+    console.log('a', a)
+    document.getElementById("created_urls").appendChild(a)
+    // document.getElementById("created_urls").a.innerHTML = "shortLink"
+    // a.addEventListener
+    a.text = shortLink
+    a.setAttribute('href', shortLink)
 // 
 }
+
+// function deleteUrl() {
+// addEventListener
+// }
