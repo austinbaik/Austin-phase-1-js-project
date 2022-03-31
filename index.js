@@ -52,7 +52,6 @@ function addUrlToDom(infoJson) {
     let orgLink = infoJson.result.original_link
     let a = document.createElement('a')
     
-    console.log('a', a)
     document.getElementById("created_urls").appendChild(a)
     // document.getElementById("created_urls").a.innerHTML = "shortLink"
     // a.addEventListener
