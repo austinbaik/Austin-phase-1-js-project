@@ -55,17 +55,20 @@ function addUrlToDom(infoJson) {
     card.className = 'card'
     //qq html visual formatting? 
     card.innerHTML = `
-        <a href= ${shortLink} target = "_blank"> "Short Link"</a>
+        <a href= ${shortLink} target = "_blank"> "Short Link"</a> 
         <a href= ${orgLink} target = "_blank"> ${orgLink} </a>
         <div class ="buttons">
             <button id="close"> X </button>
         </div>
     ` 
     //qq query selector? 
-
-    card.querySelector('#close').addEventListener('click', () => {
-        card.innerHTML = ''
+     card.querySelector('#close').addEventListener('click', () => {
+        card.remove()
     })
+    
+    // card.querySelector('#close').addEventListener('click', () => {
+    //     card.innerHTML = ''
+    // })
     document.getElementById("created_urls").appendChild(card)
 
 }
