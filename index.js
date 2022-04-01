@@ -52,24 +52,29 @@ function addUrlToDom(infoJson) {
     let shortLink = infoJson.result.full_short_link
     let orgLink = infoJson.result.original_link
     let card = document.createElement('li')
+    
     card.className = 'card'
     //qq html visual formatting? 
     card.innerHTML = `
-        <a href= ${shortLink} target = "_blank"> "Short Link"</a> 
         <a href= ${orgLink} target = "_blank"> ${orgLink} </a>
+        <br/>
+        <a href= ${shortLink} target = "_blank"> "Short Link"</a> 
         <div class ="buttons">
             <button id="close"> X </button>
         </div>
     ` 
+    document.getElementById("created_urls").appendChild(card)
+
+    console.log('card', card)
     //qq query selector? 
      card.querySelector('#close').addEventListener('click', () => {
         card.remove()
+
     })
     
     // card.querySelector('#close').addEventListener('click', () => {
     //     card.innerHTML = ''
     // })
-    document.getElementById("created_urls").appendChild(card)
 
 }
 
