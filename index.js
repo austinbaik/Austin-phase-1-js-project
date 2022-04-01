@@ -44,22 +44,51 @@ function responseChecker(infoJson) { //helper fxn checks the JSON object for API
         alert("This is not a valid URL, try again.") //webpage displays alert message 
     } else {
         addUrlToDom(infoJson) //calls fxn that add urls to DOM
+        // addOrgUrlToDom(infoJson)
     }
 }
 
 function addUrlToDom(infoJson) {
     let shortLink = infoJson.result.full_short_link
     let orgLink = infoJson.result.original_link
-    let a = document.createElement('a')
-    
-    document.getElementById("created_urls").appendChild(a)
-    // document.getElementById("created_urls").a.innerHTML = "shortLink"
-    // a.addEventListener
-    a.text = shortLink
-    a.setAttribute('href', shortLink)
-// 
+    let card = document.createElement('li')
+    card.className = 'card'
+    card.innerHTML = `
+        <a href= ${shortLink} target = "_blank"> "Short Link"</a>
+        <a href= ${orgLink} target = "_blank"> ${orgLink} </a>
+    ` 
+    document.getElementById("created_urls").appendChild(card)
+
 }
+
+
+// function addShortUrlToDom(infoJson) {
+//     let shortLink = infoJson.result.full_short_link
+//     let aShort = document.createElement('a')
+//     document.getElementById("url_list").appendChild(aShort)
+//     // document.getElementById("created_urls").a.innerHTML = "shortLink"
+//     // a.addEventListener
+//     aShort.text = shortLink
+//     aShort.setAttribute('href', shortLink)
+// }
+
+// function addOrgUrlToDom(infoJson) {
+//     let orgLink = infoJson.result.original_link
+//     let aLong = document.createElement('a')
+//     document.getElementById("url_list").appendChild(aLong)
+//     // document.getElementById("created_urls").a.innerHTML = "shortLink"
+//     // a.addEventListener
+//     aLong.text = orgLink
+//     aLong.setAttribute('href', aLong)
+// }
+
+
+
 
 // function deleteUrl() {
 // addEventListener
 // }
+
+//make cards! - add each url to a card ; 
+//build in event listener to card
+//be able to delete the whole card 
