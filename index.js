@@ -56,6 +56,9 @@ function addUrlToDom(infoJson) {
     card.innerHTML = `
         <a href= ${shortLink} target = "_blank"> "Short Link"</a>
         <a href= ${orgLink} target = "_blank"> ${orgLink} </a>
+        <div class ="buttons">
+            <button id="close"> X </button>
+        </div>
     ` 
     document.getElementById("created_urls").appendChild(card)
 
