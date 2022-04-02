@@ -9,15 +9,15 @@ document.addEventListener('DOMContentLoaded', () => {
 })
 
 function shortenUrl(url) {
-        // let urlforApi = `${apiUrl}${url}`
-        fetch(`https://api.shrtco.de/v2/shorten?url=${url}`) //API call is initiated to the API url that is interpolated with the user submitted url
-            .then(resp => resp.json())
-            .then(json => {
-                let infoJson = json
-                console.log(infoJson)
-                responseChecker(infoJson)
+    // let urlforApi = `${apiUrl}${url}`
+    fetch(`https://api.shrtco.de/v2/shorten?url=${url}`) //API call is initiated to the API url that is interpolated with the user submitted url
+        .then(resp => resp.json())
+        .then(json => {
+            let infoJson = json
+            console.log(infoJson)
+            responseChecker(infoJson)
         })
-    }
+}
 
 function responseChecker(infoJson) { //helper fxn checks the JSON object for API error
     if (infoJson.ok === false) { //if API returns 'false' for request
@@ -32,7 +32,7 @@ function addUrlToDom(infoJson) {
     let shortLink = infoJson.result.full_short_link
     let orgLink = infoJson.result.original_link
     let card = document.createElement('li')
-    
+
     card.className = 'card'
     //qq html visual formatting? 
     card.innerHTML = `
@@ -42,7 +42,7 @@ function addUrlToDom(infoJson) {
         <div class ="buttons">
             <button id="close"> X </button>
         </div>
-    ` 
+    `
     document.getElementById("created_urls").appendChild(card)
 
     console.log('card', card)
@@ -51,5 +51,5 @@ function addUrlToDom(infoJson) {
         card.remove()
 
     })
-    
+
 }
